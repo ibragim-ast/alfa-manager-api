@@ -24,6 +24,7 @@ const advertisementSchema = new mongoose.Schema({
   isFree: {
     type: Boolean,
     required: true,
+    default: false,
   },
   screen: {
     type: mongoose.Schema.Types.ObjectId,
@@ -32,5 +33,5 @@ const advertisementSchema = new mongoose.Schema({
   },
 });
 
-const Advertisement = mongoose.model("Advertisement", advertisementSchema);
-module.exports = Advertisement;
+const AdvertisementModel = mongoose.model("Advertisement", advertisementSchema);
+module.exports = AdvertisementModel;
