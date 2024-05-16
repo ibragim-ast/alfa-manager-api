@@ -27,7 +27,13 @@ module.exports.getAllScreens = (req, res) => {
   LedScreen.find({})
     .populate("advertisements")
     .then((screens) => {
-      res.send({ data: screens });
+      res.send({ screens });
     })
+    .catch((err) => res.status(500).send({ message: "Произошла ошибка" }));
+};
+
+module.exports.deleteScreen = (req, res) => {
+  LedScreen.findByIdAndDelete(req.params.id)
+    .then((screen) => res.send({ data: screen }))
     .catch((err) => res.status(500).send({ message: "Произошла ошибка" }));
 };

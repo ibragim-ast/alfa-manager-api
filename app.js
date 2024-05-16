@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const routes = require("./routes/routes.js");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -26,6 +25,7 @@ app.use(express.json());
 
 app.use("/users", require("./routes/users.js"));
 app.use("/screens", require("./routes/screens.js"));
+app.use("/advertisements", require("./routes/advertisement.js"));
 
 app.use(function (req, res, next) {
   const { origin } = req.headers;
